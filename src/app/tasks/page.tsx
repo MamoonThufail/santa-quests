@@ -212,13 +212,13 @@ function TaskModal({ task, onClose, onComplete }: { task: Task; onClose: () => v
       {/* Modal */}
       <motion.div
         className="relative w-full max-w-md rounded-2xl border border-white/10 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, rgba(15,15,20,0.98) 0%, rgba(5,5,8,0.99) 100%)" }}
+        style={{
+          background: "linear-gradient(135deg, rgba(15,15,20,0.98) 0%, rgba(5,5,8,0.99) 100%)",
+          boxShadow: "0 0 40px rgba(177, 52, 52, 0.15), inset 0 1px 0 rgba(255,255,255,0.05)"
+        }}
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        style={{
-          boxShadow: "0 0 40px rgba(177, 52, 52, 0.15), inset 0 1px 0 rgba(255,255,255,0.05)"
-        }}
       >
         {/* Gradient top */}
         <div className="h-1 santa-button-gradient" />
@@ -320,13 +320,13 @@ function DownloadModal({ task, onClose, onComplete }: { task: Task; onClose: () 
       {/* Modal */}
       <motion.div
         className="relative w-full max-w-md rounded-2xl border border-white/10 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, rgba(15,15,20,0.98) 0%, rgba(5,5,8,0.99) 100%)" }}
+        style={{
+          background: "linear-gradient(135deg, rgba(15,15,20,0.98) 0%, rgba(5,5,8,0.99) 100%)",
+          boxShadow: "0 0 40px rgba(177, 52, 52, 0.15), inset 0 1px 0 rgba(255,255,255,0.05)"
+        }}
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        style={{
-          boxShadow: "0 0 40px rgba(177, 52, 52, 0.15), inset 0 1px 0 rgba(255,255,255,0.05)"
-        }}
       >
         {/* Gradient top */}
         <div className="h-1 santa-button-gradient" />
