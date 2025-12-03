@@ -21,7 +21,7 @@ function SnowParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef({ x: -1000, y: -1000, prevX: -1000, prevY: -1000 });
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   const createParticle = useCallback((id: number, startY?: number, forceLayer?: number): Particle => {
     const layer = forceLayer ?? Math.floor(Math.random() * 3);
