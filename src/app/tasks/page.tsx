@@ -435,59 +435,74 @@ function WelcomeModal({ onStay, onSkip }: { onStay: () => void; onSkip: () => vo
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
       <motion.div
-        className="relative w-full max-w-sm rounded-2xl border border-[#B13434]/30 overflow-hidden p-6"
-        style={{ background: "linear-gradient(135deg, rgba(15,15,20,0.98) 0%, rgba(5,5,8,0.99) 100%)", boxShadow: "0 0 60px rgba(177,52,52,0.2)" }}
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
+        className="relative w-full max-w-sm rounded-2xl overflow-hidden"
+        style={{
+          background: "linear-gradient(180deg, rgba(8,8,12,0.99) 0%, rgba(2,2,4,1) 100%)",
+          boxShadow: "0 0 80px rgba(177,52,52,0.25), 0 0 120px rgba(177,52,52,0.1), inset 0 1px 0 rgba(255,255,255,0.03)",
+          border: "1px solid rgba(177,52,52,0.3)"
+        }}
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
       >
-        {/* Glow effect */}
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-40 h-40 bg-[#B13434]/20 rounded-full blur-3xl" />
+        {/* Glow effects */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#B13434]/15 rounded-full blur-[80px]" />
+        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-48 h-48 bg-[#B13434]/10 rounded-full blur-[60px]" />
 
-        <div className="relative">
+        <div className="relative p-6">
           {/* Header */}
-          <div className="text-center mb-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#B13434]/20 border border-[#B13434]/30 mb-4">
-              <span className="text-[#D84F4F] text-xs font-bold">LIMITED TIME</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D84F4F] animate-pulse" />
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-5"
+              style={{
+                background: "transparent",
+                border: "1px solid rgba(177,52,52,0.4)",
+              }}
+            >
+              <span className="text-[#D84F4F] text-xs font-bold tracking-wide">LIMITED TIME</span>
+              <span className="w-2 h-2 rounded-full bg-[#D84F4F] animate-pulse shadow-lg shadow-[#D84F4F]/50" />
             </div>
-            <h2 className="text-xl font-bold text-white mb-2">Welcome to Santa Quests!</h2>
-            <p className="text-white/50 text-sm">
-              Earn <span className="text-[#D84F4F] font-semibold">3X bonus points</span> by completing quick tasks
+            <h2 className="text-2xl font-bold text-white mb-3">Welcome to Santa Quests!</h2>
+            <p className="text-white/50 text-sm leading-relaxed">
+              Complete quick tasks and earn <span className="text-[#D84F4F] font-bold">3X bonus points</span>
             </p>
           </div>
 
-          {/* Points preview */}
-          <div className="bg-white/[0.03] rounded-xl p-4 border border-white/[0.06] mb-5">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-white/60">Complete all tasks</span>
+          {/* Points preview card */}
+          <div
+            className="rounded-xl p-4 mb-6"
+            style={{
+              background: "linear-gradient(135deg, rgba(177,52,52,0.08) 0%, rgba(5,5,8,0.9) 100%)",
+              border: "1px solid rgba(177,52,52,0.2)",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.02)"
+            }}
+          >
+            <div className="flex items-center justify-between text-sm mb-3 pb-3 border-b border-white/[0.06]">
+              <span className="text-white/50">Complete all tasks</span>
               <span className="text-white font-bold">+1,500 pts</span>
             </div>
-            <div className="flex items-center justify-between text-sm mt-2">
-              <span className="text-white/60">With 3X bonus</span>
-              <span className="text-[#D84F4F] font-bold">+4,500 pts</span>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-white/50">With 3X bonus</span>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded bg-[#B13434]/30 text-[#D84F4F] text-[10px] font-bold border border-[#B13434]/40">3X</span>
+                <span className="text-[#D84F4F] font-bold text-lg">+4,500 pts</span>
+              </div>
             </div>
           </div>
 
-          {/* Buttons */}
-          <div className="space-y-3">
-            <button
-              onClick={onStay}
-              className="w-full py-3 rounded-xl santa-button-gradient text-white font-semibold transition-all hover:opacity-90"
-              style={{ boxShadow: "0 4px 20px rgba(177, 52, 52, 0.3)" }}
-            >
-              Earn 3X Points
-            </button>
-            <button
-              onClick={onSkip}
-              className="w-full py-3 rounded-xl bg-white/[0.03] text-white/70 font-medium border border-white/10 transition-all hover:bg-white/[0.06] hover:text-white"
-            >
-              Skip to Dashboard
-            </button>
-          </div>
+          {/* Button */}
+          <button
+            onClick={onStay}
+            className="w-full py-3.5 rounded-xl text-white font-semibold cta-gradient-move overflow-hidden"
+            style={{
+              border: "1px solid rgba(177, 52, 52, 0.5)",
+            }}
+          >
+            Earn 3X Points Now
+          </button>
         </div>
       </motion.div>
     </motion.div>

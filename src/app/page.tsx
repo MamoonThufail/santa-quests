@@ -248,14 +248,14 @@ export default function Home() {
 
       {/* Hero Section - Mobile: Full screen CTA */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-6 pt-20 lg:pt-20">
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-8 items-start">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_auto_1.2fr] gap-6 lg:gap-8 items-start">
 
           {/* Left Column - Santa Quests (Mobile: centered, full screen) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="pt-0 lg:pt-8 flex flex-col items-start text-left min-h-[80vh] lg:min-h-0 justify-center lg:justify-start"
+            className="pt-0 lg:pt-8 flex flex-col items-start text-left min-h-[80vh] lg:min-h-0 justify-center lg:justify-start lg:pl-12"
           >
             <motion.h1
               className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-3 leading-tight"
