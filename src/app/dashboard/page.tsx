@@ -264,7 +264,7 @@ function SpinWheel({ onSpinComplete }: { onSpinComplete: (points: number) => voi
   const [lastSpinTime, setLastSpinTime] = useState<Date | null>(null);
   const [timeRemaining, setTimeRemaining] = useState("");
   const [showResult, setShowResult] = useState<number | null>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const canvas = canvasRef.current;
